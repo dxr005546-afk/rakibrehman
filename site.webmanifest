@@ -1,0 +1,61 @@
+{
+    "id": "/",
+    "name": "Rakib Rehman - Professional Video Editor",
+    "short_name": "Rakib Rehman",
+    "description": "Rakib Rehman is a professional video editor from Dhaka, Bangladesh. Expert in YouTube editing, reels, motion graphics, color grading, and commercial content creation for global clients.",
+    "dir": "ltr",
+    "lang": "en-US",
+    "start_url": "/?utm_source=homescreen",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#0a0a0a",
+    "theme_color": "#ff2d2d",
+    "categories": ["video", "business", "portfolio", "photo", "productivity"],
+    "icons": [
+        {
+            "src": "/web-app-manifest-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/web-app-manifest-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshot-desktop.jpg",
+            "sizes": "1920x1080",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Rakib Rehman Portfolio Desktop View"
+        },
+        {
+            "src": "/screenshot-mobile.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpeg",
+            "form_factor": "narrow",
+            "label": "Rakib Rehman Portfolio Mobile View"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "View Portfolio",
+            "short_name": "Portfolio",
+            "description": "See my latest video editing work",
+            "url": "/portfolio?utm_source=homescreen",
+            "icons": [{"src": "/web-app-manifest-192x192.png", "sizes": "192x192"}]
+        },
+        {
+            "name": "Contact Me",
+            "short_name": "Contact",
+            "description": "Hire me for your next project",
+            "url": "/contact?utm_source=homescreen",
+            "icons": [{"src": "/web-app-manifest-192x192.png", "sizes": "192x192"}]
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://rakibrehman.pages.dev/sitemap.xml
+
+# Allow all images for Google Image Search
+User-agent: Googlebot-Image
+Allow: /image/
