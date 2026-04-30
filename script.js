@@ -153,7 +153,7 @@ window.addEventListener('load', setActiveNav);
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // ঠিক আছে, আমরা নিজে পাঠাবো
+        e.preventDefault(); // Formspree এর Thanks পেজ আটকাবে
         
         let form = e.target;
         let data = new FormData(form);
@@ -164,42 +164,47 @@ if (contactForm) {
             headers: { 'Accept': 'application/json' }
         }).then(response => {
             if (response.ok) {
-                alert('Message Sent! I will contact you soon. ✅');
+                // তোমার দেওয়া মেসেজ
+                alert('Thanks\nI appreciate you reaching out to me.');
                 form.reset();
             } else {
-                alert('Oops! Message failed. Try again 😓');
+                alert('Oops! Message failed. Try again.');
             }
+        }).catch(error => {
+            alert('Network Error! Check your connection.');
         });
     });
+} // এই ব্র্যাকেট মিসিং ছিল
+
+// ৮. টাইপিং এনিমেশন 
 document.addEventListener("DOMContentLoaded", function() {
     const text = "I Don't Just Edit Videos";
     const el = document.getElementById("typing-full");
+    if (!el) return;
+    
     let i = 0;
     let deleting = false;
     
     function type() {
         if (!deleting) {
-            // Letter by Letter টাইপ: I → I  → I D → I Do...
             el.textContent = text.substring(0, i + 1);
             i++;
             if (i === text.length) {
                 deleting = true;
-                setTimeout(type, 2000); // ফুল লেখা 2s থাকবে
+                setTimeout(type, 2000);
                 return;
             }
-            setTimeout(type, 80); // টাইপ স্পিড
+            setTimeout(type, 80);
         } else {
-            // Letter by Letter মুছবে: ...s → ...Vid → I
             el.textContent = text.substring(0, i - 1) || '\u00A0';
             i--;
             if (i === 0) {
                 deleting = false;
-                setTimeout(type, 500); // মুছে শেষ হলে 0.5s গ্যাপ
+                setTimeout(type, 500);
                 return;
             }
-            setTimeout(type, 40); // মুছবে ফাস্ট
+            setTimeout(type, 40);
         }
     }
     type();
 });
-}
