@@ -149,11 +149,15 @@ function setActiveNav() {
 window.addEventListener('scroll', setActiveNav);
 window.addEventListener('load', setActiveNav);
 
-// ৭. কন্টাক্ট ফর্ম
+
+// ৭. কন্টাক্ট ফর্ম + কাস্টম Popup
 const contactForm = document.querySelector('.contact-form');
+const popup = document.getElementById('custom-popup');
+const closePopup = document.getElementById('close-popup');
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Formspree এর Thanks পেজ আটকাবে
+        e.preventDefault(); 
         
         let form = e.target;
         let data = new FormData(form);
@@ -164,8 +168,7 @@ if (contactForm) {
             headers: { 'Accept': 'application/json' }
         }).then(response => {
             if (response.ok) {
-                // তোমার দেওয়া মেসেজ
-                alert('Thanks\nI appreciate you reaching out to me.');
+                popup.style.display = 'flex'; // সুন্দর Popup দেখাও
                 form.reset();
             } else {
                 alert('Oops! Message failed. Try again.');
@@ -174,8 +177,23 @@ if (contactForm) {
             alert('Network Error! Check your connection.');
         });
     });
-} // এই ব্র্যাকেট মিসিং ছিল
+}
 
+// Popup বন্ধ করার কোড
+if (closePopup) {
+    closePopup.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+}
+
+// বাইরে ক্লিক করলেও বন্ধ হবে
+if (popup) {
+    popup.addEventListener('click', (e) => {
+        if(e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+}
 // ৮. টাইপিং এনিমেশন 
 document.addEventListener("DOMContentLoaded", function() {
     const text = "I Don't Just Edit Videos";
