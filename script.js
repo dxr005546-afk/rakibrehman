@@ -171,6 +171,7 @@ if (contactForm) {
             }
         });
     });
+}
 document.addEventListener("DOMContentLoaded", function() {
     const text = "I Don't Just Edit Videos";
     const el = document.getElementById("typing-full");
