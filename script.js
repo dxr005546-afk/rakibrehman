@@ -153,11 +153,24 @@ window.addEventListener('load', setActiveNav);
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Message Sent! I will contact you soon.');
-        e.target.reset();
+        e.preventDefault(); // ঠিক আছে, আমরা নিজে পাঠাবো
+        
+        let form = e.target;
+        let data = new FormData(form);
+        
+        fetch("https://formspree.io/f/mjglvwyo", {
+            method: "POST",
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                alert('Message Sent! I will contact you soon. ✅');
+                form.reset();
+            } else {
+                alert('Oops! Message failed. Try again 😓');
+            }
+        });
     });
-
 document.addEventListener("DOMContentLoaded", function() {
     const text = "I Don't Just Edit Videos";
     const el = document.getElementById("typing-full");
